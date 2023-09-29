@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+
+
+    <h1 class="logo">LOGO</h1>
+
+    <div class="login_image">
+        <input type="text" id="login" name="login" minlength="8" size="15"/>
+        <img src = "/assets/id.png" alt = "image_login">
+    </div>
+
+
+
+    <div class="password_image">
+        <input type="text" id="password" name="password" minlength="8" size="15"/>
+        <img src = "/assets/lock.png" alt = "image_password">
+    </div>
+
+    <div class="nouveau_client">
+        <a href="/creation/compte">Nouveau Client </a>
+    </div>
+
+    <div class="bouton-connexion">
+        <input type="submit" value="Connexion">
+    </div>
+
+
+
+{% endblock %}
