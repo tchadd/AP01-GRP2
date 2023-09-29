@@ -6,13 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class CPrincipalController extends AbstractController
+class CConnexionController extends AbstractController
 {
-    #[Route('/', name: 'app_c_principal')]
+    #[Route('/connexion', name: 'app_c_connexion')]
     public function index(): Response
     {
-        return $this->render('c_principal/index.html.twig', [
-            'controller_name' => 'CPrincipalController',
+        return $this->render('c_connexion/index.html.twig', [
+            'controller_name' => 'CConnexionController',
         ]);
     }
 }
