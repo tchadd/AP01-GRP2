@@ -2,12 +2,86 @@
 
 {% block title %}Créer un compte{% endblock %}
 
+{% block stylesheets %}
+    <link href="/assets/style_connexion.css" rel="stylesheet">
+{% endblock %}
+
 {% block body %}
 
-
+<body class="page_creation_compte">
 <div class="example-wrapper">
-    <h1>Créer un compte</h1>
 
+     <!--<div class="logo_site">
+        <img src="/assets/Logo.png" alt="Logo_site">
+    </div><!-->
+
+
+    <h1 class="H1_creer_compte">Créer un compte</h1>
+
+
+    <!--<div class="image_photographe">
+    <img src="/assets/Photo.png" alt="Appareil_photo_image">
+    </div><!-->
+
+    <div class="Nom">
+        <p1 class="Nom">Nom</p1>
+            <input type="text" id="nom" name="nom" minlength="8" size="15"/>
+    </div>
     
+
+    <div class="Prenom">
+        <p1 class="Prenom">Prénom</p1>
+            <input type="text" id="prenom" name="prenom" minlength="8" size="15"/>
+    </div>
+
+
+    <div class="Mail">
+        <p1 class="Mail">Mail</p1>
+            <input type="text" id="mail" name="mail" minlength="8" size="15"/>
+    </div>
+
+
+    <div class="Num Tel">
+        <p1 class="Num Tel">Numéro de Téléphone</p1>
+            <input type="text" id="numTel" name="numTel" minlength="8" size="15"/>
+    </div>
+
+
+    <div class="Adresse">
+        <p1 class="Adresse">Adresse</p1>
+            <input type="text" id="Adresse" name="Adresse" minlength="8" size="15"/>
+    </div>
+
+
+    <div class="Ville">
+        <p1 class="Ville">Ville</p1>
+            <input type="text" id="Ville" name="Ville" minlength="8" size="15"/>
+    </div>
+
+
+    <div class="Code_Postal">
+        <p1 class="Code_postal">Code postal</p1>
+            <input type="text" id="Code_Postal" name="Code_Postal" minlength="8" size="15"/>
+    </div>
+
+
+    <div class="MDP">
+        <p1 class="MDP">Mot de passe</p1>
+            <input type="text" id="MDP" name="MDP" minlength="8" size="15"/>
+    </div>
+
+
+    <div class="Confirm_MDP">
+        <p1 class="Confirm_MDP">Confirmation mot de passe</p1>
+            <input type="text" id="Confirm_MDP" name="Confirm_MDP" minlength="8" size="15"/>
+    </div>
+
+
+    <div>
+    <button type="submit">Créer un compte</button>
+    </div>
+    
+
 </div>
+</body>
 {% endblock %}

@@ -23,6 +23,12 @@ class Avis
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $dateAvis = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $idUtilisateurAvis = null;
+
+    #[ORM\ManyToOne(inversedBy: 'id_UtilisateurAvis')]
+    private ?Utilisateurs $id_Utilisateur_Avis = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +66,18 @@ class Avis
     public function setDateAvis(\DateTimeInterface $dateAvis): static
     {
         $this->dateAvis = $dateAvis;
+
+        return $this;
+    }
+
+    public function getIdUtilisateurAvis(): ?int
+    {
+        return $this->idUtilisateurAvis;
+    }
+
+    public function setIdUtilisateurAvis(?int $idUtilisateurAvis): static
+    {
+        $this->idUtilisateurAvis = $idUtilisateurAvis;
 
         return $this;
     }

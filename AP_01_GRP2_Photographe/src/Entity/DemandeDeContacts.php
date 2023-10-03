@@ -22,6 +22,9 @@ class DemandeDeContacts
     #[ORM\Column(length: 255)]
     private ?string $dateDemande = null;
 
+    #[ORM\ManyToOne(inversedBy: 'idDemandedeContacts')]
+    private ?Utilisateurs $idUtilisateur = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class DemandeDeContacts
     public function setDateDemande(string $dateDemande): static
     {
         $this->dateDemande = $dateDemande;
+
+        return $this;
+    }
+
+    public function getIdUtilisateur(): ?Utilisateurs
+    {
+        return $this->idUtilisateur;
+    }
+
+    public function setIdUtilisateur(?Utilisateurs $idUtilisateur): static
+    {
+        $this->idUtilisateur = $idUtilisateur;
 
         return $this;
     }

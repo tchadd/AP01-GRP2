@@ -4,29 +4,53 @@
 
 {% block body %}
 
+<body>
 
-    <h1 class="logo">LOGO</h1>
+<div class="wrapper">
 
-    <div class="login_image">
-        <input type="text" id="login" name="login" minlength="8" size="15"/>
-        <img src = "/assets/id.png" alt = "image_login">
+    <form action="">
+    <h1 class="Connexion">Connexion</h1>
+
+    <!--<div class="logo_site">
+        <img src="/assets/Logo.png" alt="Logo_site">
+    </div><!-->
+
+    <!--<div class="image_photographe">
+        <img src="/assets/Photo.png" alt="Appareil_photo_image">
+    </div> <!-->
+
+
+
+
+    <div class="input_box">
+        <input type="text" id="login" name="login" minlength="6" size="15" placeholder="Identifiant" required/>
+        <i class='bx bxs-user'></i>
+    </div>
+
+    <div class="input_box">
+        <input type="text" id="password" name="password" minlength="12" size="15" placeholder="************" required/>
+        <i class='bx bxs-lock-alt' ></i>
     </div>
 
 
+    <div class="btn_rester_co">
+        <label> <input type="checkbox"> Rester connecté ?</label>
+         <a href="#">Mot de passe oublié ? </a>
 
-    <div class="password_image">
-        <input type="text" id="password" name="password" minlength="8" size="15"/>
-        <img src = "/assets/lock.png" alt = "image_password">
-    </div>
-
-    <div class="nouveau_client">
-        <a href="/creation/compte">Nouveau Client </a>
-    </div>
-
-    <div class="bouton-connexion">
-        <input type="submit" value="Connexion">
     </div>
 
 
+    
 
+    <button type="submit" class="btn_connexion">Connexion</button>
+
+
+    <div class="create_account">
+        <p>Vous n'avez pas de compte ?
+        <a href="/creation/compte">Nouveau Client </a></p>
+    </div
+
+    </form>
+</div>
+</body>
 {% endblock %}

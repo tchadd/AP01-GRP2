@@ -22,6 +22,10 @@ class Prestations
     #[ORM\Column]
     private ?float $prixPrestation = null;
 
+    #[ORM\ManyToOne(inversedBy: 'idPrestationOptions')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Options $idPrestationsOptions = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +63,18 @@ class Prestations
     public function setPrixPrestation(float $prixPrestation): static
     {
         $this->prixPrestation = $prixPrestation;
+
+        return $this;
+    }
+
+    public function getIdPrestationsOptions(): ?Options
+    {
+        return $this->idPrestationsOptions;
+    }
+
+    public function setIdPrestationsOptions(?Options $idPrestationsOptions): static
+    {
+        $this->idPrestationsOptions = $idPrestationsOptions;
 
         return $this;
     }

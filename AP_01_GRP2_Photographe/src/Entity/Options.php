@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\OptionsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: OptionsRepository::class)]
@@ -21,6 +23,14 @@ class Options
 
     #[ORM\Column]
     private ?float $prixOption = null;
+
+    #[ORM\OneToMany(mappedBy: 'idPrestationsOptions', targetEntity: Prestations::class)]
+    private Collection $idPrestationOptions;
+
+    public function __construct()
+    {
+        $this->idPrestationOptions = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -59,6 +69,36 @@ class Options
     public function setPrixOption(float $prixOption): static
     {
         $this->prixOption = $prixOption;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Prestations>
+     */
+    public function getIdPrestationOptions(): Collection
+    {
+        return $this->idPrestationOptions;
+    }
+
+    public function addIdPrestationOption(Prestations $idPrestationOption): static
+    {
+        if (!$this->idPrestationOptions->contains($idPrestationOption)) {
+            $this->idPrestationOptions->add($idPrestationOption);
+            $idPrestationOption->setIdPrestationsOptions($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIdPrestationOption(Prestations $idPrestationOption): static
+    {
+        if ($this->idPrestationOptions->removeElement($idPrestationOption)) {
+            // set the owning side to null (unless already changed)
+            if ($idPrestationOption->getIdPrestationsOptions() === $this) {
+                $idPrestationOption->setIdPrestationsOptions(null);
+            }
+        }
 
         return $this;
     }
