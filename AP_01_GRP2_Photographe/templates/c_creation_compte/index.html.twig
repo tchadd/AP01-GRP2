@@ -3,13 +3,14 @@
 {% block title %}Créer un compte{% endblock %}
 
 {% block stylesheets %}
-    <link href="/assets/style_connexion.css" rel="stylesheet">
+    <link href="/assets/style_creation_compte.css" rel="stylesheet">
 {% endblock %}
 
 {% block body %}
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-<body class="page_creation_compte">
-<div class="example-wrapper">
+<body>
+<div class="wrapper_page_creation_compte">
 
      <!--<div class="logo_site">
         <img src="/assets/Logo.png" alt="Logo_site">
@@ -23,65 +24,77 @@
     <img src="/assets/Photo.png" alt="Appareil_photo_image">
     </div><!-->
 
-    <div class="Nom">
-        <p1 class="Nom">Nom</p1>
-            <input type="text" id="nom" name="nom" minlength="8" size="15"/>
+    <!-- NOM/PRENOM<!-->
+
+    <div class="input-box">
+        <div class="input-field">
+            <input type="text" placeholder="Nom de famille" required> 
+            <i class='bx bxs-user'></i>
+        </div>
+        <div class="input-field">
+            <input type="text" placeholder="Prénom" required>
+            <i class='bx bxs-user'></i>
+        </div>
     </div>
+
+
+    <!-- MAIL/NUM TEL<!-->
+
+     <div class="input-box">
+        <div class="input-field">
+            <input type="email" placeholder="Email" required>
+            <i class='bx bxs-envelope'></i>
+        </div>
+        <div class="input-field">
+            <input type="number" placeholder="N° de téléphone" required>
+            <i class='bx bxs-phone'></i>
+        </div>
+    </div>
+
+    <!-- ADRESSE/VILLE/CP<!-->
+
+
+     <div class="input-box">
+        <div class="input-field">
+            <input type="text" placeholder="Adresse" required>
+            <i class='bx bx-street-view'></i>
+        </div>
+        <div class="input-field">
+            <input type="text" placeholder="Ville" required>
+            <i class='bx bx-street-view'></i>
+        </div>
+        <div class="input-field">
+            <input type="text" placeholder="CP" size="5" required>
+            <i class='bx bx-street-view'></i>
+        </div>
+        <div class="input-field">
+            <input type="text" placeholder="Genre" required>
+            <i class='bx bx-street-view'></i>
+        </div>
+    </div>
+
+
+    <!-- MDP<!-->
+
+      <div class="input-box">
+        <div class="input-field">
+            <input type="password" placeholder="Mot de passe" required>
+            <i class='bx bxs-lock-alt' ></i>
+        </div>
+        <div class="input-field">
+            <input type="password" placeholder="Confirmation Mot de Passe" required>
+            <i class='bx bxs-lock-alt' ></i>
+        </div>
+    </div>
+
+    <button type="submit" class="btn_crer_compte">Créer un compte</button>
     
-
-    <div class="Prenom">
-        <p1 class="Prenom">Prénom</p1>
-            <input type="text" id="prenom" name="prenom" minlength="8" size="15"/>
+    <div class="btn_retour">
+        <a href="/connexion">Retour </a></p>
     </div>
-
-
-    <div class="Mail">
-        <p1 class="Mail">Mail</p1>
-            <input type="text" id="mail" name="mail" minlength="8" size="15"/>
-    </div>
-
-
-    <div class="Num Tel">
-        <p1 class="Num Tel">Numéro de Téléphone</p1>
-            <input type="text" id="numTel" name="numTel" minlength="8" size="15"/>
-    </div>
-
-
-    <div class="Adresse">
-        <p1 class="Adresse">Adresse</p1>
-            <input type="text" id="Adresse" name="Adresse" minlength="8" size="15"/>
-    </div>
-
-
-    <div class="Ville">
-        <p1 class="Ville">Ville</p1>
-            <input type="text" id="Ville" name="Ville" minlength="8" size="15"/>
-    </div>
-
-
-    <div class="Code_Postal">
-        <p1 class="Code_postal">Code postal</p1>
-            <input type="text" id="Code_Postal" name="Code_Postal" minlength="8" size="15"/>
-    </div>
-
-
-    <div class="MDP">
-        <p1 class="MDP">Mot de passe</p1>
-            <input type="text" id="MDP" name="MDP" minlength="8" size="15"/>
-    </div>
-
-
-    <div class="Confirm_MDP">
-        <p1 class="Confirm_MDP">Confirmation mot de passe</p1>
-            <input type="text" id="Confirm_MDP" name="Confirm_MDP" minlength="8" size="15"/>
-    </div>
-
-
-    <div>
-    <button type="submit">Créer un compte</button>
-    </div>
-    
 
 </div>
+</div>
 </body>
+
 {% endblock %}

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PrestationsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PrestationsRepository::class)]
@@ -25,6 +27,17 @@ class Prestations
     #[ORM\ManyToOne(inversedBy: 'idPrestationOptions')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Options $idPrestationsOptions = null;
+
+    #[ORM\OneToMany(mappedBy: 'idPrestationsOptions', targetEntity: Options::class)]
+    private Collection $idPrestationOption;
+
+    #[ORM\ManyToOne(inversedBy: 'IdPrestaOptions')]
+    private ?Options $idPrestaOption = null;
+
+    public function __construct()
+    {
+        $this->idPrestationOption = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -75,6 +88,48 @@ class Prestations
     public function setIdPrestationsOptions(?Options $idPrestationsOptions): static
     {
         $this->idPrestationsOptions = $idPrestationsOptions;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Options>
+     */
+    public function getIdPrestationOption(): Collection
+    {
+        return $this->idPrestationOption;
+    }
+
+    public function addIdPrestationOption(Options $idPrestationOption): static
+    {
+        if (!$this->idPrestationOption->contains($idPrestationOption)) {
+            $this->idPrestationOption->add($idPrestationOption);
+            $idPrestationOption->setIdPrestationsOptions($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIdPrestationOption(Options $idPrestationOption): static
+    {
+        if ($this->idPrestationOption->removeElement($idPrestationOption)) {
+            // set the owning side to null (unless already changed)
+            if ($idPrestationOption->getIdPrestationsOptions() === $this) {
+                $idPrestationOption->setIdPrestationsOptions(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getIdPrestaOption(): ?Options
+    {
+        return $this->idPrestaOption;
+    }
+
+    public function setIdPrestaOption(?Options $idPrestaOption): static
+    {
+        $this->idPrestaOption = $idPrestaOption;
 
         return $this;
     }

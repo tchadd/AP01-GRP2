@@ -27,9 +27,16 @@ class Options
     #[ORM\OneToMany(mappedBy: 'idPrestationsOptions', targetEntity: Prestations::class)]
     private Collection $idPrestationOptions;
 
+    #[ORM\ManyToOne(inversedBy: 'idPrestationOption')]
+    private ?Prestations $idPrestationsOptions = null;
+
+    #[ORM\OneToMany(mappedBy: 'idPrestaOption', targetEntity: Prestations::class)]
+    private Collection $IdPrestaOptions;
+
     public function __construct()
     {
         $this->idPrestationOptions = new ArrayCollection();
+        $this->IdPrestaOptions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -97,6 +104,48 @@ class Options
             // set the owning side to null (unless already changed)
             if ($idPrestationOption->getIdPrestationsOptions() === $this) {
                 $idPrestationOption->setIdPrestationsOptions(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getIdPrestationsOptions(): ?Prestations
+    {
+        return $this->idPrestationsOptions;
+    }
+
+    public function setIdPrestationsOptions(?Prestations $idPrestationsOptions): static
+    {
+        $this->idPrestationsOptions = $idPrestationsOptions;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Prestations>
+     */
+    public function getIdPrestaOptions(): Collection
+    {
+        return $this->IdPrestaOptions;
+    }
+
+    public function addIdPrestaOption(Prestations $idPrestaOption): static
+    {
+        if (!$this->IdPrestaOptions->contains($idPrestaOption)) {
+            $this->IdPrestaOptions->add($idPrestaOption);
+            $idPrestaOption->setIdPrestaOption($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIdPrestaOption(Prestations $idPrestaOption): static
+    {
+        if ($this->IdPrestaOptions->removeElement($idPrestaOption)) {
+            // set the owning side to null (unless already changed)
+            if ($idPrestaOption->getIdPrestaOption() === $this) {
+                $idPrestaOption->setIdPrestaOption(null);
             }
         }
 

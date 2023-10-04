@@ -4,6 +4,8 @@
 
 {% block body %}
 
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 <body>
 
 <div class="wrapper">
@@ -20,8 +22,6 @@
     </div> <!-->
 
 
-
-
     <div class="input_box">
         <input type="text" id="login" name="login" minlength="6" size="15" placeholder="Identifiant" required/>
         <i class='bx bxs-user'></i>
@@ -32,23 +32,12 @@
         <i class='bx bxs-lock-alt' ></i>
     </div>
 
-
-    <div class="btn_rester_co">
-        <label> <input type="checkbox"> Rester connecté ?</label>
-         <a href="#">Mot de passe oublié ? </a>
-
-    </div>
-
-
-    
-
     <button type="submit" class="btn_connexion">Connexion</button>
-
 
     <div class="create_account">
         <p>Vous n'avez pas de compte ?
         <a href="/creation/compte">Nouveau Client </a></p>
-    </div
+    </div>
 
     </form>
 </div>

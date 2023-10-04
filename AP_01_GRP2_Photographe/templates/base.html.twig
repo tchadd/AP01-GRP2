@@ -3,14 +3,19 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-.        {% block stylesheets %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block stylesheets %}
+
+        <link rel="stylesheet" href="{{ asset('assets/style_connexion.css') }}">
+
         {% endblock %}
 
-        {% block javascripts %}
-        {% endblock %}
-        <link href="assets/style_connexion.css" rel="stylesheet">
+       
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+        
+        {% endblock %}
     </body>
 </html>
+ 
