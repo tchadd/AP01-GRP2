@@ -26,8 +26,6 @@ class Avis
     #[ORM\Column(nullable: true)]
     private ?int $idUtilisateurAvis = null;
 
-    #[ORM\ManyToOne(inversedBy: 'id_UtilisateurAvis')]
-    private ?Utilisateurs $id_Utilisateur_Avis = null;
 
     public function getId(): ?int
     {
@@ -70,15 +68,5 @@ class Avis
         return $this;
     }
 
-    public function getIdUtilisateurAvis(): ?int
-    {
-        return $this->idUtilisateurAvis;
-    }
-
-    public function setIdUtilisateurAvis(?int $idUtilisateurAvis): static
-    {
-        $this->idUtilisateurAvis = $idUtilisateurAvis;
-
-        return $this;
-    }
+    
 }
