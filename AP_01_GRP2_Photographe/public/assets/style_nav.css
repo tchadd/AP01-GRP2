@@ -1,0 +1,35 @@
+.navbar-div{
+    width: 100%;
+    height: 70px;
+    background-image:linear-gradient(to right, #6664e6, #933cce); 
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.bouttons-nav{
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.boutton-nav{
+    list-style: none;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.boutton-text-nav{
+    text-decoration: none;
+    font-size: 25px;
+}
+
+.logo-nav{
+    display: flex;
+    align-items: center;
+}

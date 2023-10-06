@@ -10,24 +10,28 @@
         {% block javascripts %}
         {% endblock %}
         <link href="assets/style_connexion.css" rel="stylesheet">
+        <link href="assets/style_nav.css" rel="stylesheet">
 
     </head>
     <body>
 
-        <div class="navbar">
-            <nav>
-                <ul>
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="#">Présentation</a></li>
-                    <li><a href="#">Prestations</a></li>
-                    <li><a href="#">Avis</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Accueil</a></li>
+        <div class="navbar-div">
+            <nav class="navbar">
+            <div>
+            </div>
+                <ul class="bouttons-nav">
+                    <li class="boutton-nav"><a class="boutton-text-nav" href="#">Accueil</a></li>
+                    <li class="boutton-nav"><a class="boutton-text-nav" href="#">Présentation</a></li>
+                    <li class="boutton-nav"><a class="boutton-text-nav" href="#">Prestations</a></li>
+                    <li class="boutton-nav"><a class="boutton-text-nav" href="/avis">Avis</a></li>
+                    <li class="boutton-nav"><a class="boutton-text-nav" href="#">Contact</a></li>
                 </ul>
-                <img src="#" alt="logo navbar">
+                <img class="logo-nav" src="assets/logo_temporaire.png" alt="logo navbar" width="120px" height="50px">
             </nav>
         </div>
 
         {% block body %}{% endblock %}
     </body>
+
+
 </html>
